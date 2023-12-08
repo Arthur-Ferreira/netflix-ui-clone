@@ -1,0 +1,58 @@
+@use './vars';
+
+.faq {
+
+
+  &__questions {
+    margin-top: 1rem;
+    &__item {
+      background-color: vars.$answer-background-color;
+      margin-bottom: .5rem;
+
+      
+      &__question {
+        color: #fff;
+        font-size: 1.2rem;
+        padding: 1rem;
+        display: block;
+        cursor: pointer;
+        position: relative;
+        border-bottom: 1px solid vars.$body-background-color;
+        
+        &:hover {
+          background-color: vars.$questions-background-color;
+        }
+
+        &::after {
+          content: '+';
+          position: absolute;
+          top: 0;
+          right: 24px;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          font-size: 2.5rem;
+        }
+      }
+
+      &__answer {
+        height: 0;
+        overflow: hidden;
+        transition: height, .5s ease;
+      }
+      
+      &--is-open {
+        .faq__questions__item__question::after {
+          content: 'x';
+          font-size: 2rem;
+        }
+
+        .faq__questions__item__answer {
+          height: auto;
+          transition: height, .5s ease;
+          padding: 1rem;
+        }
+      }
+    }
+  }
+}

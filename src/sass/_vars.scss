@@ -1,0 +1,30 @@
+// Background colors
+$body-background-color: #000;
+$dark-background-color: #000;
+
+$plans-background-color: linear-gradient(180deg, #6c1f41 0%, #210d0e 100%);
+$reasons-background-color: linear-gradient(149deg, #192247 0%, #210e17 96.86%);
+$questions-background-color: #414141;
+$answer-background-color: #2d2d2d;
+
+$button-background-color: #e50914;
+$button-background-color-hover: #c11119;
+
+
+// Text colors
+$primary-text-color: #fff;
+$light-text-color: #ffffffcc;
+$secondary-text-color: #ffffffb3;
+
+// Text Mixin
+@mixin text($fontSize: 1rem) {
+  font-size: $fontSize;
+  line-height: calc($fontSize + 0.6rem);
+  color: $light-text-color;
+}
+
+// Title Mixin
+@mixin title($fontSize: 2rem) {
+  @include text($fontSize);
+  color: $primary-text-color;
+}

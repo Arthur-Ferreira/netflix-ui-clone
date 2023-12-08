@@ -1,0 +1,225 @@
+@use './vars';
+@use './header';
+@use './hero';
+@use './plans';
+@use './reasons-to-join';
+@use './faq';
+@use './footer';
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+body {
+  background-color: vars.$body-background-color;
+  font-family: sans-serif;
+  position: relative;
+}
+
+main {
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  @media (min-width: 600px) {
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 960px) {
+    padding: 0 5rem;
+  }
+
+  @media (min-width: 1280px) {
+
+    padding: 0 20.25rem;
+  }
+}
+
+
+.text--small {
+  @include vars.text(12px);
+
+  @media (min-width: 768px) {
+    @include vars.text(11px);
+  }
+}
+
+.text {
+  @include vars.text;
+
+  @media (max-width: 768px) {
+    @include vars.text(14px);
+  }
+}
+
+.text--big {
+  @include vars.text(18px);
+
+  @media (max-width: 768px) {
+    @include vars.text(15px);
+  }
+}
+
+.title--small {
+  @include vars.title(1rem);
+
+  @media (min-width: 768px) {
+    @include vars.title(1.25rem);
+  }
+}
+
+.title {
+  @include vars.title;
+
+  @media (max-width: 768px) {
+    @include vars.title(24px);
+  }
+}
+
+.title--big {
+  @include vars.title(44px);
+
+  @media (max-width: 768px) {
+    @include vars.title(26px);
+  }
+}
+
+.link-text {
+  @include vars.text(18px);
+  color: vars.$light-text-color;
+  text-decoration: underline;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  min-height: 3.8rem;
+  color: vars.$primary-text-color;
+  background-color: vars.$button-background-color;
+  text-decoration: none;
+  letter-spacing: normal;
+  border: 1px solid vars.$button-background-color;
+  cursor: pointer;
+  transition-duration: 250ms;
+  transition-property: background-color, border-color;
+  transition-timing-function: cubic-bezier(0.9, 0, 0.51, 1);
+  padding: 0.75rem 1.5rem;
+
+  &:hover {
+    background-color: lighten(vars.$button-background-color-hover, 3%);
+  }
+}
+
+.form {
+  padding-bottom: 3rem;
+  
+  &:nth-child(1) {
+    padding-bottom: 0;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+      font-size: 1rem;
+      color: vars.$secondary-text-color;
+      font-weight: 400;
+    }
+
+    &__get-started {
+      display: flex;
+      flex-direction: column;
+      padding-top: 1rem;
+      gap: 1rem;
+
+      @media (min-width: 768px) {
+        flex-direction: row;
+      }
+
+      &__email {
+        position: relative;
+        
+        width: 100%;
+        max-width: 500px;
+
+        label {
+          position: absolute;
+          z-index: 1;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          transition-property: top, font-size, line-height;
+          transition-duration: 250ms;
+          pointer-events: none;
+          transition-timing-function: cubic-bezier(0.9, 0, 0.51, 1);
+          left: 1rem;
+          right: 1rem;
+          top: 1rem;
+        }
+
+        &--input {
+          position: relative;
+          text-align: left;
+          z-index: 0;
+          border: 1px solid rgba(128, 128, 128, 0.7);
+          border-radius: 0.25rem;
+
+          input {
+            font: inherit;
+            background: transparent;
+            width: 100%;
+            color: vars.$secondary-text-color;
+            filter: opacity(0%);
+            padding: 1.5rem 1rem 0.5rem;
+            line-height: 1.5;
+            z-index: 2;
+          }
+
+        }
+      }
+
+      button {
+        font-size: 1rem;
+        font-weight: 700;
+        color: vars.$light-text-color;
+        background-color: vars.$button-background-color;
+        text-transform: uppercase;
+        border-radius: 0.25rem;
+        align-self: flex-start;
+
+        span {
+          margin-left: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.language {
+  display: flex;
+  align-items: center;
+  border-radius: 0.25rem;
+
+  select {
+    background-color: transparent;
+    border: 1px solid vars.$questions-background-color;
+    color: vars.$primary-text-color;
+    height: 2rem;
+
+    &:hover {
+      color: vars.$light-text-color;
+    }
+
+    option {
+      color: vars.$body-background-color;
+    }
+  }
+}

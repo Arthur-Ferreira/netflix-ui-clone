@@ -1,0 +1,46 @@
+@use 'vars';
+
+.footer {
+  padding: 0 1rem;
+
+  .text--big {
+    margin-bottom: 1rem;
+    a {
+      @include vars.text(1rem);
+      color: vars.$secondary-text-color;
+    }
+  }
+
+  &__links {
+    margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .5rem;
+
+    @media (min-width: 600px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 960px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width: 1280px) {
+      grid-template-columns: repeat(4, 1fr);
+
+    }
+
+    &__item {
+      display: inline-block;
+
+      a {
+        @include vars.text(.8rem);
+        color: vars.$secondary-text-color;
+      }
+    }
+  }
+
+  .text {
+    margin: 2rem 0 5rem;
+  }
+}

@@ -1,0 +1,83 @@
+@use './vars';
+
+.hero {
+  padding: 0 1.5rem;
+  min-height: 31rem;
+  max-width: 120rem;
+  background-image: linear-gradient(50deg, rgba(0, 0, 0, 0.9000) 20.00%, rgba(0, 0, 0, 0.8965) 26.50%, rgba(0, 0, 0, 0.8861) 33.00%, rgba(0, 0, 0, 0.8688) 39.50%, rgba(0, 0, 0, 0.8444) 46.00%, rgba(0, 0, 0, 0.8132) 52.50%, rgba(0, 0, 0, 0.7750) 59.00%, rgba(0, 0, 0, 0.7368) 65.50%, rgba(0, 0, 0, 0.7056) 72.00%, rgba(0, 0, 0, 0.6813) 78.50%, rgba(0, 0, 0, 0.6639) 85.00%, rgba(0, 0, 0, 0.6535) 91.50%, rgba(0, 0, 0, 0.6500) 98.00%), url(../images/BR-pt-20231204-popsignuptwoweeks-perspective_alpha_website_small.jpg);
+  background-size: cover;
+
+  display: flex;
+  align-items: flex-end;
+
+
+  &__content {
+    margin: 0 auto;
+    width: 100%;
+    
+    @media(min-width: 960px) {
+      max-width: 850px;
+    }
+
+    @media(min-width: 1600px) {
+      max-width: 1280px;
+    }
+
+    &__branding {
+      
+      .title {
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 150%;
+        margin-bottom: 0.5rem;
+      }
+
+      .text {
+        font-size: 1rem;
+        font-weight: 400;
+        color: vars.$primary-text-color;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}
+
+.devider {
+  overflow-x: hidden;
+  position: relative;
+  height: 6.25rem;
+  z-index: 1;
+  margin-top: -1rem;
+
+  &--curve-container {
+
+    &--line {
+      position: absolute;
+      height: 100%;
+      width: 150%;
+      left: -25%;
+      top: 0;
+      border: solid .25rem transparent;
+      border-top-left-radius: 50% 100%;
+      border-top-right-radius: 50% 100%;
+      border-bottom: none;
+      background: radial-gradient(50% 500% at 50% -420%,
+          rgba(64, 97, 231, 0.4) 80%,
+          rgba(0, 0, 0, 0.1) 100%), black;
+      background-clip: padding-box;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        margin-top: -0.25rem;
+        border-radius: inherit;
+        background: linear-gradient(to right, rgba(33, 13, 22, 1) 16%, rgba(184, 40, 105, 1), rgba(229, 9, 20, 1), rgba(184, 40, 105, 1), rgba(33, 13, 22, 1) 84%);
+      }
+    }
+  }
+}
