@@ -24,7 +24,7 @@ function scriptsMin() {
 }
 
 function imgMin() {
-  return gulp.src('src/imgs/**/*.{jpg, png}')
+  return gulp.src('src/imgs/**/*.*')
     .pipe(imagemin([
       imagemin.mozjpeg({ quality: 80, progressive: true }),
       imagemin.optipng({ optimizationLevel: 2 }),
