@@ -24,16 +24,11 @@ function scriptsMin() {
 }
 
 function imgMin() {
-  return gulp.src('src/imgs/**/*.{jpg, jpeg, png}')
+  return gulp.src('src/imgs/**/*.{jpg, png}')
     .pipe(imagemin([
       imagemin.mozjpeg({ quality: 80, progressive: true }),
       imagemin.optipng({ optimizationLevel: 2 }),
     ]))
-    .pipe(gulp.dest('build/images'));
-}
-
-function svgMin() {
-  return gulp.src('src/imgs/**/*.svg')
     .pipe(gulp.dest('build/images'));
 }
 
@@ -42,12 +37,10 @@ gulp.task('htmlMin', htmlMin);
 gulp.task('stylesMin', stylesMin);
 gulp.task('scriptsMin', scriptsMin);
 gulp.task('imgMin', imgMin);
-gulp.task('svgMin', svgMin);
 
 module.exports = {
   stylesMin,
   imgMin,
   scriptsMin,
   htmlMin,
-  svgMin
 }

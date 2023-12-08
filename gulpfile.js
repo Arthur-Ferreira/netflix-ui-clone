@@ -1,6 +1,6 @@
 const gulp = require('gulp');
 
-const { stylesMin, imgMin, scriptsMin, htmlMin, svgMin } = require('./tasks/minifiers');
+const { stylesMin, imgMin, scriptsMin, htmlMin } = require('./tasks/minifiers');
 const { watchFiles, server } = require('./tasks/server');
 
 
@@ -12,4 +12,4 @@ exports.server = gulp.series(
   watchFiles
 );
 
-module.exports.default = gulp.series(htmlMin, stylesMin, scriptsMin, imgMin, svgMin);
+module.exports.default = gulp.series(htmlMin, stylesMin, scriptsMin, imgMin);
